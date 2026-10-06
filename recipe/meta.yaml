@@ -1,15 +1,15 @@
-{% set version = '1.1' %}
+{% set version = "1.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-supercell
-  version: "{{ version|replace('-', '_') }}"
+  version: {{ version|replace('-', '_') }}
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/SuperCell_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/SuperCell/SuperCell_{{ version }}.tar.gz
-  sha256: f4dbad3ce11647295a702a000552bfcbe29a46d021efab65a0e188b098f132f3
+  sha256: 4618d2884073fe6cde5ea328fdfa2d25a847cfe7635afa321010f4d0f1ae917a
 
 build:
   number: 0
@@ -77,12 +77,8 @@ test:
 about:
   home: https://CRAN.R-project.org/package=SuperCell
   license: GPL-3.0-only
-  summary: Aggregates large single-cell data into metacell dataset by merging together gene expression
-    of very similar cells. 'SuperCell' uses 'velocyto.R' <doi:10.1038/s41586-018-0414-6>
-    <https://github.com/velocyto-team/velocyto.R> for RNA velocity and 'WeightedCluster'
-    <doi:10.12682/lives.2296-1658.2013.24> <https://mephisto.unige.ch/weightedcluster/>
-    for weighted clustering on metacells. We also recommend installing 'scater' Bioconductor
-    package <doi:10.18129/B9.bioc.scater> <https://bioconductor.org/packages/release/bioc/html/scater.html>.
+  summary: Aggregates large single-cell data into metacell dataset by merging together gene expression of very similar cells. 'SuperCell' uses 'velocyto.R' <doi:10.1038/s41586-018-0414-6> <https://github.com/velocyto-team/velocyto.R> for RNA velocity and 'WeightedCluster' <doi:10.12682/lives.2296-1658.2013.24> 
+    <https://mephisto.unige.ch/weightedcluster/> for weighted clustering on metacells. We also recommend installing 'scater' Bioconductor package <doi:10.18129/B9.bioc.scater> <https://bioconductor.org/packages/release/bioc/html/scater.html>.
   license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
